@@ -44,4 +44,40 @@
             android:layout_height="wrap_content"
             android:text="Načíst"/>
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/DalsiTlacitka"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_below="@id/Tlacitka">
+        <Button
+            android:id="@+id/sound"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zvuk"/>
+        <Button
+            android:id="@+id/wifi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wifi"/>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/TlacitkaNaNotifikace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_below="@id/DalsiTlacitka">
+        <Button
+            android:id="@+id/focus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Žádné zprávy"/>
+        <Button
+            android:id="@+id/ruch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chci zprávy"/>
+    </LinearLayout>
 </RelativeLayout>
