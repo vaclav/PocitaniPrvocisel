@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     /*
     Servise na pozadi, ktery pocita prvocisla
      */
-    var myService: MyService? = null
+    var myService: MyIndependentService? = null
 
     /*
     Udava, zda jsme pripojeni k servisu
@@ -89,7 +89,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun startService() {
-        bindService(Intent(this, MyService::class.java), myConnection, Context.BIND_AUTO_CREATE)
+        startService(Intent(this, MyIndependentService::class.java))
+        bindService(Intent(this, MyIndependentService::class.java), myConnection, Context.BIND_AUTO_CREATE)
         start.isEnabled = false
         konec.isEnabled = true
         isConnected = true
@@ -100,11 +101,12 @@ class MainActivity : AppCompatActivity() {
         start.isEnabled = true
         konec.isEnabled = false
         isConnected = false
+        stopService(Intent(this, MyIndependentService::class.java))
     }
 
     private val myConnection = object : ServiceConnection {
         override fun onServiceConnected(className: ComponentName, service: IBinder) {
-            val channel = service as MyService.MyChannelToService
+            val channel = service as MyIndependentService.MyChannelToService
             myService = channel.getService()
             isConnected = true
         }
